@@ -183,12 +183,20 @@ function output($method, $data) {
 
     return json_decode($result, true);
 }
-$cc1 = $_GET['cc'];
-$cc_partes = explode("|", $cc1);
-$cc = $cc_partes[0];
-$month = $cc_partes[1];
-$year = $cc_partes[2];
-$cvv = $cc_partes[3];
+$cc = $_GET['cc'] ?? '';
+$ccn = explode("|", $cc);
+
+if (count($ccn) < 4) {
+    echo json_encode([
+        "Response" => "Invalid CC format",
+        "Price"    => "0.00",
+        "CC"       => $cc
+    ]);
+    exit;
+}
+
+[$ccnum, $ccmon, $ccyear, $cvv] = $ccn;
+
 /*=====  sub_month  ======*/
 $yearcont=strlen($year);
 if ($yearcont<=2){
@@ -257,9 +265,11 @@ function getMinimumPriceProductDetails(string $json): array {
 
 $site1 = filter_input(INPUT_GET, 'site', FILTER_SANITIZE_URL);
 
+$site1 = $_GET['site'] ?? '';
 $site1 = parse_url($site1, PHP_URL_HOST);
 $site1 = 'https://' . $site1;
 $site1 = filter_var($site1, FILTER_VALIDATE_URL);
+
 if ($site1 === false) {
     $err = 'Invalid URL';
     $result = json_encode([
@@ -268,6 +278,9 @@ if ($site1 === false) {
     echo $result;
     exit;
 }
+
+$ch = curl_init($site1);
+
 
     $site2 = parse_url($site1, PHP_URL_SCHEME) . "://" . parse_url($site1, PHP_URL_HOST);
     $site = "$site2/products.json";
