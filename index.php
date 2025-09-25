@@ -265,7 +265,6 @@ function getMinimumPriceProductDetails(string $json): array {
 
 $site1 = filter_input(INPUT_GET, 'site', FILTER_SANITIZE_URL);
 
-$site1 = $_GET['site'] ?? '';
 $site1 = parse_url($site1, PHP_URL_HOST);
 $site1 = 'https://' . $site1;
 $site1 = filter_var($site1, FILTER_VALIDATE_URL);
@@ -280,6 +279,7 @@ if ($site1 === false) {
 }
 
 $ch = curl_init($site1);
+
 
 
     $site2 = parse_url($site1, PHP_URL_SCHEME) . "://" . parse_url($site1, PHP_URL_HOST);
