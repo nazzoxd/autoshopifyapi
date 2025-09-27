@@ -183,7 +183,17 @@ function output($method, $data) {
 
     return json_decode($result, true);
 }
-$cc1 = $_GET['cc'];
+// Arguments are passed from the command line: php index.php <site> <cc>
+if ($argc < 3) {
+    die(json_encode(['Response' => 'Error: Missing site and cc arguments.']));
+}
+
+$site1 = $argv[1]; // The first argument is the site URL
+$cc1 = $argv[2];   // The second argument is the CC string
+
+// The rest of your script remains the same...
+
+
 $cc_partes = explode("|", $cc1);
 $cc = $cc_partes[0];
 $month = $cc_partes[1];
@@ -254,8 +264,6 @@ function getMinimumPriceProductDetails(string $json): array {
 
     return $minPriceDetails;
 }
-
-$site1 = filter_input(INPUT_GET, 'site', FILTER_SANITIZE_URL);
 
 $site1 = parse_url($site1, PHP_URL_HOST);
 $site1 = 'https://' . $site1;
