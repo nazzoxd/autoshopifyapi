@@ -10,21 +10,24 @@ app = Flask(__name__)
 def run_checkout():
     """
     API endpoint to run the Shopify checkout PHP script.
-    Expects 'site' and 'cc' as query parameters.
+    Expects 'site', 'cc' and optional 'proxy' as query parameters.
     """
     # 1. Get query parameters from the request URL
     site = request.args.get('site')
     cc = request.args.get('cc')
+    proxy = request.args.get('proxy')  # optional
 
-    # 2. Validate that both parameters are provided
+    # 2. Validate required parameters
     if not site or not cc:
         return jsonify({
             "Response": "Error: 'site' and 'cc' query parameters are required."
         }), 400
 
     # 3. Construct the command to execute the PHP script
-    # We pass 'site' and 'cc' as command-line arguments
+    # Pass site, cc, and optionally proxy as arguments
     command = ['php', 'index.php', site, cc]
+    if proxy:
+        command.append(proxy)
 
     try:
         # 4. Run the command as a subprocess
@@ -33,10 +36,10 @@ def run_checkout():
             capture_output=True,
             text=True,
             check=True,
-            timeout=60  # Add a 60-second timeout
+            timeout=60  # 60-second timeout
         )
 
-        # 5. The PHP script outputs a JSON string, so we try to parse it
+        # 5. Try to parse the PHP script output as JSON
         try:
             json_output = json.loads(result.stdout)
             return jsonify(json_output)
