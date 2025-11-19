@@ -28,7 +28,6 @@ def run_checkout():
     command = ['php', 'index.php', site, cc]
     if proxy:
         command.append(proxy)
-        print(f"Using proxy: {proxy}")  # Debug message
 
     try:
         # 4. Run the command as a subprocess
