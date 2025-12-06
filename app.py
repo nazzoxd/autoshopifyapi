@@ -3,7 +3,7 @@
 from flask import Flask, request, jsonify
 import asyncio
 import re
-from autosh import process_card, fetchProducts
+from index import process_card, fetchProducts
 from utils import Utils
 
 app = Flask(__name__)
